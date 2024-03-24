@@ -169,7 +169,7 @@ header {
 }
 
 .meal_cards {
-    padding: 20px 5%;
+    padding: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -182,16 +182,18 @@ header {
     border-radius: 15px;
     text-align: left;
     padding-bottom: 10px;
+    display: block;
 }
 
 .card_img {
-    background-image: url(./images/Rectangle\ 6.png); 
+    background-image: url(./images/Rectangle\ 6.png);
     width: 100%;
     height: 200px;
     background-size: cover;
     position: relative;
 }
-.card_rating{
+
+.card_rating {
     z-index: 2;
     background-color: white;
     text-align: right;
@@ -200,6 +202,7 @@ header {
     right: 0;
     padding: 0 10px;
 }
+
 .card_body {
     padding: 0 15px;
 }
@@ -239,31 +242,39 @@ header {
     background-color: var(--light-blue);
     border-radius: 15px;
     padding: 5px 15px;
+    margin: 5px;
     font-size: 18px;
 }
 
-.meal_pages {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
+#paginated-list {
+    list-style: none;
 }
 
-.page {
+.hidden {
+    display: none;
+}
+
+.pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-number,
+.pagination-button {
     width: 40px;
     height: 40px;
     background-color: white;
-    align-items: center;
-    display: flex;
-    justify-content: center;
     border-radius: 5px;
     border: 2px solid var(--dark-blue);
     margin: 0 10px;
     font-weight: bold;
     cursor: pointer;
+    margin-bottom: 30px;
 }
 
-.page_active{
-background-color: var(--light-blue);
+.pagination-number.active {
+    background-color: var(--light-blue);
 }
 
 @media screen and (min-width: 800px) {
