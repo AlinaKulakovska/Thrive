@@ -207,9 +207,10 @@ header {
     padding: 0 15px;
 }
 
-.card_name h3 {
-    font-size: 22px;
+.card_name {
+    font-size: 24px;
     margin: 10px 0;
+    font-weight: bold;
 }
 
 .meal_link {
@@ -229,8 +230,10 @@ header {
     background-color: var(--light-blue);
 }
 
-.card-description {
+.card_description {
     margin-top: 10px;
+    max-height: 90px;
+    overflow: hidden;
 }
 
 .card_nurtition_price {

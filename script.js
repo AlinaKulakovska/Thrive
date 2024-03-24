@@ -1,99 +1,34 @@
-const paginationNumbers = document.getElementById("pagination-numbers");
-const paginatedList = document.getElementById("paginated-list");
-const listItems = paginatedList.querySelectorAll(".li");
-const nextButton = document.getElementById("next-button");
-const prevButton = document.getElementById("prev-button");
+var pecipeList = [{
+    "idMeal": "1",
+    "name": "Spicy Arrabiata Penne",
+    "time": "20 min",
+    "hardness": "easy",
+    "Category": "Vegetarian",
+    "strInstructions": "Bring a large pot of water to a boil. Add kosher salt to the boiling water, then add the pasta. Cook according to the package instructions, about 9 minutes.\r\nIn a large skillet over medium-high heat, add the olive oil and heat until the oil starts to shimmer. Add the garlic and cook, stirring, until fragrant, 1 to 2 minutes. ",
+    "Ingridiensts": "<li>Rice 250g</li><li>water 500ms</li><li>egg 2</li>",
+    "Nutrition": "250cal|54g|23g|17g",
+    "Price": "$24"
+},
+{
+    "idMeal": "2",
+    "name": "Teriyaki Chicken Casserole",
+    "time": "30 min",
+    "hardness": "hard",
+    "Category": "Chicken",
+    "strInstructions": "Preheat oven to 350\u00b0 F. Spray a 9x13-inch baking pan with non-stick spray.\r\nCombine soy sauce, \u00bd cup water, brown sugar, ginger and garlic in a small saucepan and cover.  ",
+    "Ingridiensts": "<li>chicken 250g</li><li>water 500ms</li><li>egg 2</li>",
+    "Nutrition": "350cal|15g|23g|21g",
+    "Price": "$24"
+}
+];
 
-const paginationLimit = 3;
-const pageCount = Math.ceil(listItems.length / paginationLimit);
-let currentPage = 1;
+for (i = 0; i < pecipeList.length; i++) {
+    var mealName1 = document.createElement("li");
+    console.log(mealName1.innerHTML);
+    document.getElementById("paginated-list").appendChild(mealName1);
+    mealName1.classList.add("li", "card_name");
+    mealName1.innerHTML = pecipeList[i].name
+    console.log(mealName1.innerHTML);
+    
+}
 
-const disableButton = (button) => {
-  button.classList.add("disabled");
-  button.setAttribute("disabled", true);
-};
-
-const enableButton = (button) => {
-  button.classList.remove("disabled");
-  button.removeAttribute("disabled");
-};
-
-const handlePageButtonsStatus = () => {
-  if (currentPage === 1) {
-    disableButton(prevButton);
-  } else {
-    enableButton(prevButton);
-  }
-
-  if (pageCount === currentPage) {
-    disableButton(nextButton);
-  } else {
-    enableButton(nextButton);
-  }
-};
-
-const handleActivePageNumber = () => {
-  document.querySelectorAll(".pagination-number").forEach((button) => {
-    button.classList.remove("active");
-    const pageIndex = Number(button.getAttribute("page-index"));
-    if (pageIndex == currentPage) {
-      button.classList.add("active");
-    }
-  });
-};
-
-const appendPageNumber = (index) => {
-  const pageNumber = document.createElement("button");
-  pageNumber.className = "pagination-number";
-  pageNumber.innerHTML = index;
-  pageNumber.setAttribute("page-index", index);
-  pageNumber.setAttribute("aria-label", "Page " + index);
-
-  paginationNumbers.appendChild(pageNumber);
-};
-
-const getPaginationNumbers = () => {
-  for (let i = 1; i <= pageCount; i++) {
-    appendPageNumber(i);
-  }
-};
-
-const setCurrentPage = (pageNum) => {
-  currentPage = pageNum;
-
-  handleActivePageNumber();
-  handlePageButtonsStatus();
-  
-  const prevRange = (pageNum - 1) * paginationLimit;
-  const currRange = pageNum * paginationLimit;
-
-  listItems.forEach((item, index) => {
-    item.classList.add("hidden");
-    if (index >= prevRange && index < currRange) {
-      item.classList.remove("hidden");
-    }
-  });
-};
-
-window.addEventListener("load", () => {
-  getPaginationNumbers();
-  setCurrentPage(1);
-
-  prevButton.addEventListener("click", () => {
-    setCurrentPage(currentPage - 1);
-  });
-
-  nextButton.addEventListener("click", () => {
-    setCurrentPage(currentPage + 1);
-  });
-
-  document.querySelectorAll(".pagination-number").forEach((button) => {
-    const pageIndex = Number(button.getAttribute("page-index"));
-
-    if (pageIndex) {
-      button.addEventListener("click", () => {
-        setCurrentPage(pageIndex);
-      });
-    }
-  });
-});
