@@ -169,15 +169,17 @@ header {
 }
 
 .meal_cards {
-    padding: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+
 }
 
 .meal_card {
-    max-width: 360px;
+    width: 330px;
     margin: 25px;
+    height: 505px;
+    overflow: hidden;
     box-shadow: 0 0 14px 1px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     text-align: left;
@@ -187,20 +189,23 @@ header {
 
 .card_img {
     background-image: url(./images/Rectangle\ 6.png);
-    width: 100%;
+    width: 330px;
     height: 200px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     background-size: cover;
-    position: relative;
+
 }
 
 .card_rating {
-    z-index: 2;
     background-color: white;
     text-align: right;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: 0 10px;
+    border-top-left-radius: 15px;
+    position: relative;
+    width: 55%;
+    margin-top: -25px;
+    float: right;
+    padding-right: 10px;
 }
 
 .card_body {
@@ -251,10 +256,12 @@ header {
 
 #paginated-list {
     list-style: none;
+
 }
 
 .hidden {
     display: none;
+    animation: 1s linear;
 }
 
 .pagination-container {
