@@ -55,40 +55,49 @@ var pecipeList = [{
     "Price": "$20"
 }
 ];
+
+
+
+
+
 // sort by time
+function sortTime() {
 
-// pecipeList = pecipeList.sort((a, b) => {
-//     if (a.time < b.time) {
-//       return -1;
-//     }
-//   });
-//   console.log(pecipeList);
+    pecipeList = pecipeList.sort((a, b) => {
+        if (a.time < b.time) {
+            return -1;
+        }
+    });
+    codeAddress();
+}
 
 
+function codeAddress() {
+    document.getElementById("paginated-list").innerHTML = "";
+    for (let i = 0; i < pecipeList.length; i++) {
 
-for (let i = 0; i < pecipeList.length; i++) {
-    var meal = document.createElement("li");
-    document.getElementById("paginated-list").appendChild(meal);
-    meal.classList.add("li", "meal_card");
-    var rating = document.createElement("div");
-    rating.classList.add("card_rating");
+        let meal = document.createElement("li");
+        document.getElementById("paginated-list").appendChild(meal);
+        meal.classList.add("li", "meal_card");
+        let rating = document.createElement("div");
+        rating.classList.add("card_rating");
 
-    for (let x = 0; x < 5; x++) {
-        if (x >= pecipeList[i].rating) {
-            let img = document.createElement("img");
-            img.style.height = "15px";
-            img.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsmn6LPTD6BY0te9Qk_9jM_mOBcbVn8lae9w&usqp=CAU";
-            rating.append(img)
-        } else {
-            let img = document.createElement("img");
-            img.style.height = "15px";
-            img.src = "https://freeiconshop.com/wp-content/uploads/edd/star-curved-outline-filled.png";
-            rating.append(img)
-        };
-    }
+        for (let x = 0; x < 5; x++) {
+            if (x >= pecipeList[i].rating) {
+                let img = document.createElement("img");
+                img.style.height = "15px";
+                img.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsmn6LPTD6BY0te9Qk_9jM_mOBcbVn8lae9w&usqp=CAU";
+                rating.append(img)
+            } else {
+                let img = document.createElement("img");
+                img.style.height = "15px";
+                img.src = "https://freeiconshop.com/wp-content/uploads/edd/star-curved-outline-filled.png";
+                rating.append(img)
+            };
+        }
 
-    const card_list = document.createElement("div");
-    card_list.insertAdjacentHTML("beforeend", `
+        const card_list = document.createElement("div");
+        card_list.insertAdjacentHTML("beforeend", `
     <a href="#" class="meal_link">
         <img src="${pecipeList[i].img}" class="card_img">
             <div class="card_rating">
@@ -126,7 +135,112 @@ for (let i = 0; i < pecipeList.length; i++) {
             </div>
         </div>
     </a>`,
-        meal.append(card_list)
-    );
+            meal.append(card_list)
+        );
+    } pagination()
 }
 
+function pagination() {
+    document.getElementById("pagination-numbers").innerHTML = ""
+    // pagination
+    const paginationNumbers = document.getElementById("pagination-numbers");
+    const paginatedList = document.getElementById("paginated-list");
+    const listItems = paginatedList.querySelectorAll(".li");
+    const nextButton = document.getElementById("next-button");
+    const prevButton = document.getElementById("prev-button");
+
+    const paginationLimit = 3;
+    const pageCount = Math.ceil(listItems.length / paginationLimit);
+    let currentPage = 1;
+
+    const disableButton = (button) => {
+        button.classList.add("disabled");
+        button.setAttribute("disabled", true);
+    };
+
+    const enableButton = (button) => {
+        button.classList.remove("disabled");
+        button.removeAttribute("disabled");
+    };
+
+    const handlePageButtonsStatus = () => {
+        if (currentPage === 1) {
+            disableButton(prevButton);
+        } else {
+            enableButton(prevButton);
+        }
+
+        if (pageCount === currentPage) {
+            disableButton(nextButton);
+        } else {
+            enableButton(nextButton);
+        }
+    };
+
+    const handleActivePageNumber = () => {
+        document.querySelectorAll(".pagination-number").forEach((button) => {
+            button.classList.remove("active");
+            const pageIndex = Number(button.getAttribute("page-index"));
+            if (pageIndex == currentPage) {
+                button.classList.add("active");
+            }
+        });
+    };
+
+    const appendPageNumber = (index) => {
+        const pageNumber = document.createElement("button");
+        pageNumber.className = "pagination-number";
+        pageNumber.innerHTML = index;
+        pageNumber.setAttribute("page-index", index);
+        pageNumber.setAttribute("aria-label", "Page " + index);
+
+        paginationNumbers.appendChild(pageNumber);
+    };
+
+    const getPaginationNumbers = () => {
+        for (let i = 1; i <= pageCount; i++) {
+            appendPageNumber(i);
+        }
+    };
+
+    const setCurrentPage = (pageNum) => {
+        currentPage = pageNum;
+
+        handleActivePageNumber();
+        handlePageButtonsStatus();
+
+        const prevRange = (pageNum - 1) * paginationLimit;
+        const currRange = pageNum * paginationLimit;
+
+        listItems.forEach((item, index) => {
+            item.classList.add("hidden");
+            if (index >= prevRange && index < currRange) {
+                item.classList.remove("hidden");
+            }
+        });
+    };
+
+
+    getPaginationNumbers();
+    setCurrentPage(1);
+
+    prevButton.addEventListener("click", () => {
+        setCurrentPage(currentPage - 1);
+    });
+
+    nextButton.addEventListener("click", () => {
+        setCurrentPage(currentPage + 1);
+    });
+
+    document.querySelectorAll(".pagination-number").forEach((button) => {
+        const pageIndex = Number(button.getAttribute("page-index"));
+
+        if (pageIndex) {
+            button.addEventListener("click", () => {
+                setCurrentPage(pageIndex);
+            });
+        }
+    });
+
+}
+window.onload = codeAddress()

@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Ojuju:wght@200..800&display=swap"
         rel="stylesheet">
+    
 </head>
 
 <body>
@@ -45,19 +46,11 @@
                     <div class="dropdown">
                         <button class="dropbtn">Sort <img src="./images/Vector 1.png" alt="" width="15px"></button>
                         <div class="dropdown-content">
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
+                            <button  onclick="sortTime()">Time</button>
                         </div>
                     </div>
                     <button class="meal_btn">Vegan</button>
                 </div>
-            </div>
-            <div>
-                <input class="meal_input meal_search" type="search" name="Ingridients" id="Ingridients"
-                    placeholder="Ingridients...">
-                <img class="search_img" src="https://cdn-icons-png.flaticon.com/512/6192/6192211.png" alt=""
-                    width="25px">
             </div>
         </nav>
         <ul id="paginated-list" class="meal_cards" data-current-page="1" aria-live="polite">
@@ -132,8 +125,8 @@
     </div>
 
 
+
     <script src="./script.js"></script>
-    <script src="./pagination.js"></script>
 </body>
 
 </html>
