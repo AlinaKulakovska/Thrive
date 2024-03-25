@@ -1,12 +1,12 @@
-var pecipeList = [{
+const pecipeList = [{
     "idMeal": "1",
-    "img": "https://www.tastingtable.com/img/gallery/penne-arrabiata-recipe-best-pasta-recipes-spicy-tomato-sauce/penne-arrabiata-recipe-1641224585.jpg",
+    "strMealThumb": "https://www.tastingtable.com/img/gallery/penne-arrabiata-recipe-best-pasta-recipes-spicy-tomato-sauce/penne-arrabiata-recipe-1641224585.jpg",
     "rating": "4.5",
     "reviews": "34",
-    "name": "Spicy Arrabiata Penne",
+    "strMeal": "Spicy Arrabiata Penne",
     "time": "30 min",
     "hardness": "easy",
-    "Category": "Vegetarian",
+    "strCategory": "Vegetarian",
     "strInstructions": "Bring a large pot of water to a boil. Add kosher salt to the boiling water, then add the pasta. Cook according to the package instructions, about 9 minutes.\r\nIn a large skillet over medium-high heat, add the olive oil and heat until the oil starts to shimmer. Add the garlic and cook, stirring, until fragrant, 1 to 2 minutes. ",
     "Ingridiensts": "<li>Rice - 250g</li><li>water - 500ms</li><li>egg</li>",
     "Nutrition": "250cal|54g|23g|17g",
@@ -14,13 +14,13 @@ var pecipeList = [{
 },
 {
     "idMeal": "2",
-    "name": "Teriyaki Chicken Casserole",
-    "img": "https://kikkomanusa.com/homecooks/wp-content/uploads/2022/02/Teriyaki-Chicken-Casserole-Photo-Site.jpg",
+    "strMeal": "Teriyaki Chicken Casserole",
+    "strMealThumb": "https://kikkomanusa.com/homecooks/wp-content/uploads/2022/02/Teriyaki-Chicken-Casserole-Photo-Site.jpg",
     "rating": "2",
     "reviews": "16",
     "time": "20 min",
     "hardness": "medium",
-    "Category": "Non-vegan",
+    "strCategory": "Non-vegan",
     "strInstructions": "Preheat oven to 350\u00b0 F. Spray a 9x13-inch baking pan with non-stick spray.\r\nCombine soy sauce, \u00bd cup water, brown sugar, ginger and garlic in a small saucepan and cover.  ",
     "Ingridiensts": "<li>chicken - 250g</li><li>water - 500ms</li><li>eggs - 2</li>",
     "Nutrition": "350cal|15g|23g|21g",
@@ -28,13 +28,13 @@ var pecipeList = [{
 },
 {
     "idMeal": "3",
-    "img": "https://mma.prnewswire.com/media/2045665/Tim_Hortons_April_1_Alert__Tim_Hortons_testing_Square_Timbits_at.jpg?p=twitter",
+    "strMealThumb": "https://mma.prnewswire.com/media/2045665/Tim_Hortons_April_1_Alert__Tim_Hortons_testing_Square_Timbits_at.jpg?p=twitter",
     "rating": "3",
     "reviews": "1",
-    "name": "Timbits",
+    "strMeal": "Timbits",
     "time": "90 min",
     "hardness": "hard",
-    "Category": "Dessert",
+    "strCategory": "Dessert",
     "strInstructions": "Sift together dry ingredients.\r\nMix together wet ingredients and incorporate into dry. Stir until smooth.\r\nDrop by teaspoonfuls(no bigger) into hot oil (365 degrees, no hotter), ",
     "Ingridiensts": "<li>flour - 250g</li><li>water - 500ms</li><li>eggs - 2</li>",
     "Nutrition": "250cal|54g|33g|17g",
@@ -42,13 +42,13 @@ var pecipeList = [{
 },
 {
     "idMeal": "4",
-    "name": "Cevapi Sausages",
-    "img": "https://www.seriouseats.com/thmb/2uspI5RtmIyXYVCbCgs1ljl8Fks=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230307-SEA-Kedgeree-AmandaSuarez-17-a311881136f14c34bfad1d0d6c246cee.JPG",
+    "strMeal": "Cevapi Sausages",
+    "strMealThumb": "https://www.seriouseats.com/thmb/2uspI5RtmIyXYVCbCgs1ljl8Fks=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230307-SEA-Kedgeree-AmandaSuarez-17-a311881136f14c34bfad1d0d6c246cee.JPG",
     "rating": "1",
     "reviews": "14",
     "time": "10 min",
     "hardness": "easy",
-    "Category": "Non-vegan",
+    "strCategory": "Vegetarian",
     "strInstructions": "Preheat oven to 350\u00b0 F. Spray a 9x13-inch baking pan with non-stick spray.\r\nCombine soy sauce, \u00bd cup water, brown sugar, ginger and garlic in a small saucepan and cover.  ",
     "Ingridiensts": "<li>Onion - 50g</li><li>Fish -250g</li><li>Lemon - 1/2</li>",
     "Nutrition": "150cal|15g|23g|21g",
@@ -56,51 +56,115 @@ var pecipeList = [{
 },
 {
     "idMeal": "5",
-    "img": "https://www.allrecipes.com/thmb/GwdML2o-xsFGnHTEp-uy7RWMEOc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/166638-baked-buffalo-wings-ddmfs-beauty-3x4-90787930d20b402e9dde79c22fced332.jpg",
+    "strMealThumb": "https://www.allrecipes.com/thmb/GwdML2o-xsFGnHTEp-uy7RWMEOc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/166638-baked-buffalo-wings-ddmfs-beauty-3x4-90787930d20b402e9dde79c22fced332.jpg",
     "rating": "4",
     "reviews": "74",
-    "name": "Spicy Chicken Wings",
+    "strMeal": "Spicy Chicken Wings",
     "time": "40 min",
     "hardness": "easy",
-    "Category": "Non-Vegan",
+    "strCategory": "Non-Vegan",
     "strInstructions": "Bring a large pot of water to a boil. Add kosher salt to the boiling water, then add the pasta. Cook according to the package instructions, about 9 minutes.\r\nIn a large skillet over medium-high heat, add the olive oil and heat until the oil starts to shimmer. Add the garlic and cook, stirring, until fragrant, 1 to 2 minutes. ",
     "Ingridiensts": "<li>Chicken Wings - 250g</li><li>oil - 500ms</li><li>egg</li>",
     "Nutrition": "250cal|54g|23g|17g",
     "Price": "$15"
-}
+},
+{
+    "idMeal": "6",
+    "strMealThumb": "https://pastaevangelists.com/cdn/shop/articles/Duck_ragu_1200x1200.jpg?v=1590766287",
+    "rating": "2.5",
+    "reviews": "54",
+    "strMeal": "Venetian Duck Ragu",
+    "time": "45 min",
+    "hardness": "medium",
+    "strCategory": "Non-Vegan",
+    "strInstructions": "Heat the oil in a large pan. Add the duck legs and brown on all sides for about 10 mins. Remove to a plate and set aside. Add the onions to the pan and cook for 5 mins until softened. Add the garlic and cook for a further 1 min,",
+    "Ingridiensts": "<li>Duck Legs - 250g</li><li>Parmesan Cheese - 140g</li><li>Garlic</li>",
+    "Nutrition": "250cal|24g|33g|18g",
+    "Price": "$15"
+},
+{
+    "idMeal": "7",
+    "strMealThumb": "https://www.thespruceeats.com/thmb/48MwYE_xzZnw31K4_Z81fw0FxrA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/traditional-scottish-dundee-cake-recipe-435067-hero-02-41514a0a054d486990fb3910fc7ec1b6.jpg",
+    "rating": "5.5",
+    "reviews": "124",
+    "strMeal": "Dundee cake",
+    "time": "60 min",
+    "hardness": "hard",
+    "strCategory": "Dessert",
+    "strInstructions": "Put the almonds into a small bowl and pour over boiling water to just cover. Leave for 5 mins then drain in a sieve and leave to dry.\r\nPreheat the oven to 180C\/160 C fan\/Gas Mark 4.",
+    "Ingridiensts": "<li>Almonds - 250g</li><li>Butter - 140g</li><li>Muscovado Sugar - 350g</li>",
+    "Nutrition": "350cal|54g|12g|47g",
+    "Price": "$15"
+},
 ];
+// creates last card random meal 
+fetch('https://www.themealdb.com/api/json/v1/1/random.php')
+    .then(res => res.json())
+    .then(data => {
+        pecipeList.push((data.meals[0]))
+        cards(pecipeList)
+        console.log(pecipeList)
+    })
+    .catch(err => {
+        console.error(err);
+    });
+const outputElement = document.getElementById('output');
 
 
+// Search
 const input = document.getElementById('Search');
 
-input.addEventListener("search", addEventListener("search", () => {
+input.addEventListener("search", () => {
     var newarray = []
     for (let i = 0; i < pecipeList.length; i++) {
-        if (pecipeList[i].name.includes(input.value)) {
+        if (pecipeList[i].strMeal.includes(input.value)) {
             newarray.push(pecipeList[i])
-           
-        }}console.log(newarray);
-        codeAddress(newarray);
-})); 
+
+        }
+    }
+    cards(newarray);
+});
 
 
+// vegan
+const vegan = document.getElementById('vegan');
+var setVegan = false;
+vegan.addEventListener("click", () => {
+    var newarrayvegan = []
+    if (setVegan === false) {
+        for (let i = 0; i < pecipeList.length; i++) {
+            if (pecipeList[i].strCategory.includes("Vegetarian")) {
+                newarrayvegan.push(pecipeList[i]);
+            }
+        }
+        setVegan = true;
+        cards(newarrayvegan);
+    } else {
+        setVegan = false;
+        cards(pecipeList);
+    }
 
-
+});
+function sortRicent() {
+    cards(pecipeList);
+}
 
 // sort by time
 function sortTime() {
-
-    pecipeList = pecipeList.sort((a, b) => {
+    let sortTime = [...pecipeList];
+    sortTime.sort((a, b) => {
         if (a.time < b.time) {
             return -1;
         }
     });
-    codeAddress(pecipeList);
+    cards(sortTime);
 }
-
-function codeAddress(array) {
+//  cards
+function cards(array) {
     document.getElementById("paginated-list").innerHTML = "";
-
+    if (array.length == 0) {
+        document.getElementById("paginated-list").innerHTML = "<h1>Nothing Found</h1>"
+    }
     for (let i = 0; i < array.length; i++) {
 
         let meal = document.createElement("li");
@@ -126,39 +190,40 @@ function codeAddress(array) {
         const card_list = document.createElement("div");
         card_list.insertAdjacentHTML("beforeend", `
     <a href="#" class="meal_link">
-        <img src="${array[i].img}" class="card_img">
+        <img src="${array[i].strMealThumb ? array[i].strMealThumb : ""}" class="card_img">
             <div class="card_rating">
 
-               ${rating.innerHTML}
-                    ${array[i].reviews} Ratings
+               ${rating.innerHTML ? rating.innerHTML : ""}
+                    ${array[i].reviews ? array[i].reviews : ""} Ratings
             </div>
         </img>
         <div class="card_body">
             <div class="card_name">
-                ${array[i].name}
+                ${array[i].strMeal ? array[i].strMeal : ""}
             </div>
             <div class="card_properties">
                 <div class="properties_circle"><img
                         src="https://cdn-icons-png.flaticon.com/512/826/826165.png" width="25px" alt="">
-                </div>${array[i].time}
+                </div>${array[i].time ? array[i].time : "No data"}
                 <div class="properties_circle"><img
                         src="https://cdn-icons-png.flaticon.com/512/7780/7780470.png" width="25px"
                         alt="">
-                </div>${array[i].hardness}
+                </div>${array[i].hardness ? array[i].hardness : "No data"}
                 <div class="properties_circle"><img
                         src="https://cdn-icons-png.flaticon.com/512/5627/5627100.png" width="25px"
                         alt="">
-                </div>${array[i].Category}
+                </div>${array[i].strCategory ? array[i].strCategory : "No data"}
             </div>
 
-                <p class="card_description">${array[i].strInstructions}</p>
+                <p class="card_description">${array[i].strInstructions ? array[i].strInstructions : ""}
+                </p>
                 <ul class="card_list">
-                ${array[i].Ingridiensts}
+                ${array[i].Ingridiensts ? array[i].Ingridiensts : ["<li>"+array[i].strIngredient1 + " - " + array[i].strMeasure1 + "</li>" + "<li>"+array[i].strIngredient2 + " - " + array[i].strMeasure2 + "</li>" + "<li>"+array[i].strIngredient2 + " - " + array[i].strMeasure3 + "</li>"]}
                 </ul>
 
             <div class="card_nurtition_price">
-                <div class="nutrition">${array[i].Nutrition}</div>
-                <div class="price"><b>${array[i].Price}</b></div>
+                <div class="nutrition">${array[i].Nutrition ? array[i].Nutrition : "No data"}</div>
+                <div class="price"><b>${array[i].Price ? array[i].Price : ""}</b></div>
             </div>
         </div>
     </a>`,
@@ -270,4 +335,4 @@ function pagination() {
     });
 
 }
-window.onload = codeAddress(pecipeList)
+window.onload = cards(pecipeList)

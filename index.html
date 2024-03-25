@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Ojuju:wght@200..800&display=swap"
         rel="stylesheet">
-    
+
 </head>
 
 <body>
@@ -37,19 +37,23 @@
         </div>
         <nav class="meal_nav">
             <div class="meal_nav">
-                <div>
-                    <input class="meal_input meal_search" type="search" name="Search" id="Search"
-                        placeholder="Search..." minlength="3">
-                    <img class="search_img" src="https://cdn-icons-png.freepik.com/256/711/711319.png" width="25px">
-                </div>
-                <div>
-                    <div class="dropdown">
-                        <button class="dropbtn">Sort <img src="./images/Vector 1.png" alt="" width="15px"></button>
-                        <div class="dropdown-content">
-                            <button  onclick="sortTime()">Time</button>
-                        </div>
+                <div style="display: flex; align-items: center;">
+                    <div>
+                        <input class="meal_input" type="search" name="Search" id="Search" placeholder="Search..."
+                            minlength="3">
+
                     </div>
-                    <!-- <button class="meal_btn">Vegan</button> -->
+                    <div>
+                        <div class="dropdown">
+                            <button class="dropbtn">Sort <img src="./images/Vector 1.png" alt="" width="15px"></button>
+                            <div class="dropdown-content">
+                                <button onclick="sortTime()">Time</button>
+                                <button onclick="sortRicent()">Recent</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <button class="meal_btn" id="vegan">Vegan</button>
                 </div>
             </div>
         </nav>
@@ -124,8 +128,11 @@
 
     </div>
 
+<div id="output"></div>
 
+    <script>
 
+    </script>
     <script src="./script.js"></script>
 </body>
 
