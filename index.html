@@ -125,14 +125,22 @@
                 &gt;
             </button>
         </nav>
-
+        <button class="pagination-button" onclick="createpost()">Add Recepie</button>
     </div>
-
-<div id="output"></div>
-
-    <script>
-
-    </script>
+    <div class="madal-container hidden" id="modal">
+        <div class="modal">
+            <h3>Meal Name</h3>
+            <input type="text" name="" id="name">
+            <h3>strMealThumb</h3>
+            <input type="text" name="" id="thumb">
+            <h3>strInstructions</h3>
+            <input type="text" name="" id="Instructions">
+            <h3>Category</h3>
+            <input type="text" name="" id="Category">
+            <input class="pagination-button"  type="button" value="Submit" id="submit">
+            <input class="pagination-button"  type="button" value="Close" id="close">
+        </div>
+    </div>
     <script src="./script.js"></script>
 </body>
 

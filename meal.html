@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thrive</title>
+    <link rel="icon" type="image/x-icon" href="./images/Logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Ojuju:wght@200..800&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <header style="background-color: #30505C;"><img src="./images/Logo.png" alt="" id="logo"></header>
+    <main id="conteiner" style="padding-top: 100px; display: flex; justify-content: center;">
+
+        <div>
+            <div style="display: flex; justify-content: center;">
+                <img src="" alt="" id="meal_img">
+            </div>
+            <p id="strInstructions"></p>
+            <p id="Ingridiensts"></p>
+        </div>
+
+    </main>
+
+    <script>
+        const strMealThumb = localStorage.getItem("strMealThumb");
+        const strInstructions = localStorage.getItem("strInstructions");
+        const Ingridiensts = localStorage.getItem("Ingridiensts")
+
+document.getElementById("meal_img").src = strMealThumb
+document.getElementById("strInstructions").innerHTML = strInstructions
+document.getElementById("Ingridiensts").innerHTML = Ingridiensts
+    </script>
+</body>
+
+</html>

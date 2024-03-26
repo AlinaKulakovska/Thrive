@@ -94,7 +94,7 @@ const pecipeList = [{
     "strInstructions": "Put the almonds into a small bowl and pour over boiling water to just cover. Leave for 5 mins then drain in a sieve and leave to dry.\r\nPreheat the oven to 180C\/160 C fan\/Gas Mark 4.",
     "Ingridiensts": "<li>Almonds - 250g</li><li>Butter - 140g</li><li>Muscovado Sugar - 350g</li>",
     "Nutrition": "350cal|54g|12g|47g",
-    "Price": "$15"
+    "Price": "$10"
 },
 ];
 // creates last card random meal 
@@ -109,6 +109,22 @@ fetch('https://www.themealdb.com/api/json/v1/1/random.php')
         console.error(err);
     });
 const outputElement = document.getElementById('output');
+
+
+
+// crate post
+function createpost() {
+    document.getElementById("modal").classList.remove("hidden")
+}
+document.getElementById("close").addEventListener("click", () => {
+    document.getElementById("modal").classList.add("hidden")
+})
+document.getElementById("submit").addEventListener("click", () => {
+    let x = { "strCategory":  document.getElementById("Category").value,"strInstructions": document.getElementById("Instructions").value, "strMeal": document.getElementById("name").value, "strMealThumb": document.getElementById("thumb").value};
+    pecipeList.push(x)
+    cards(pecipeList)
+    document.getElementById("modal").classList.add("hidden")
+})
 
 
 // Search
@@ -189,7 +205,7 @@ function cards(array) {
 
         const card_list = document.createElement("div");
         card_list.insertAdjacentHTML("beforeend", `
-    <a href="#" class="meal_link">
+    <a href="./meal.html" class="meal_link">
         <img src="${array[i].strMealThumb ? array[i].strMealThumb : ""}" class="card_img">
             <div class="card_rating">
 
@@ -218,7 +234,7 @@ function cards(array) {
                 <p class="card_description">${array[i].strInstructions ? array[i].strInstructions : ""}
                 </p>
                 <ul class="card_list">
-                ${array[i].Ingridiensts ? array[i].Ingridiensts : ["<li>"+array[i].strIngredient1 + " - " + array[i].strMeasure1 + "</li>" + "<li>"+array[i].strIngredient2 + " - " + array[i].strMeasure2 + "</li>" + "<li>"+array[i].strIngredient2 + " - " + array[i].strMeasure3 + "</li>"]}
+                ${array[i].Ingridiensts ? array[i].Ingridiensts : ["<li>" + array[i].strIngredient1 + " - " + array[i].strMeasure1 + "</li>" + "<li>" + array[i].strIngredient2 + " - " + array[i].strMeasure2 + "</li>" + "<li>" + array[i].strIngredient3 + " - " + array[i].strMeasure3 + "</li>"]}
                 </ul>
 
             <div class="card_nurtition_price">
@@ -229,6 +245,17 @@ function cards(array) {
     </a>`,
             meal.append(card_list)
         );
+
+        // link
+        const link = document.querySelectorAll(".meal_link");
+        for (let i = 0; i < link.length; i++) {
+            link[i].addEventListener("click", () => {
+                localStorage.setItem("id", pecipeList[i].idMeal);
+                localStorage.setItem("strInstructions", pecipeList[i].strInstructions)
+                localStorage.setItem("strMealThumb", pecipeList[i].strMealThumb)
+                localStorage.setItem("Ingridiensts", pecipeList[i].Ingridiensts)
+            })
+        }
     } pagination()
 }
 
@@ -335,4 +362,5 @@ function pagination() {
     });
 
 }
-window.onload = cards(pecipeList)
+
+window.onload = cards(pecipeList);
