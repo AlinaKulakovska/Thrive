@@ -1,0 +1,1 @@
+This is practice Responsive website which has page pagination, api fetching random meal, sorting recipes, Searching for meals and ability to add recipes. Also I used local storage for parsing data of clicked recipe to new page
