@@ -178,8 +178,8 @@ function sortTime() {
 //  cards
 function cards(array) {
     document.getElementById("paginated-list").innerHTML = "";
-    if (array.length == 0) {
-        document.getElementById("paginated-list").innerHTML = "<h1>Nothing Found</h1>"
+    if (array.length === 0) {
+        document.getElementById("paginated-list").innerHTML = "<h1>Nothing Found</h1>";
     }
     for (let i = 0; i < array.length; i++) {
 
@@ -190,73 +190,59 @@ function cards(array) {
         rating.classList.add("card_rating");
 
         for (let x = 0; x < 5; x++) {
+            let img = document.createElement("img");
+            img.style.height = "15px";
             if (x >= array[i].rating) {
-                let img = document.createElement("img");
-                img.style.height = "15px";
                 img.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsmn6LPTD6BY0te9Qk_9jM_mOBcbVn8lae9w&usqp=CAU";
-                rating.append(img)
             } else {
-                let img = document.createElement("img");
-                img.style.height = "15px";
                 img.src = "https://freeiconshop.com/wp-content/uploads/edd/star-curved-outline-filled.png";
-                rating.append(img)
-            };
+            }
+            rating.append(img);
         }
 
         const card_list = document.createElement("div");
         card_list.insertAdjacentHTML("beforeend", `
-    <a href="./meal.html" class="meal_link">
-        <img src="${array[i].strMealThumb ? array[i].strMealThumb : ""}" class="card_img">
-            <div class="card_rating">
-
-               ${rating.innerHTML ? rating.innerHTML : ""}
+        <a href="#" class="meal_link" data-id="${array[i].idMeal}">
+            <img src="${array[i].strMealThumb ? array[i].strMealThumb : ""}" class="card_img">
+                <div class="card_rating">
+                    ${rating.innerHTML ? rating.innerHTML : ""}
                     ${array[i].reviews ? array[i].reviews : ""} Ratings
-            </div>
-        </img>
-        <div class="card_body">
-            <div class="card_name">
-                ${array[i].strMeal ? array[i].strMeal : ""}
-            </div>
-            <div class="card_properties">
-                <div class="properties_circle"><img
-                        src="https://cdn-icons-png.flaticon.com/512/826/826165.png" width="25px" alt="">
-                </div>${array[i].time ? array[i].time : "No data"}
-                <div class="properties_circle"><img
-                        src="https://cdn-icons-png.flaticon.com/512/7780/7780470.png" width="25px"
-                        alt="">
-                </div>${array[i].hardness ? array[i].hardness : "No data"}
-                <div class="properties_circle"><img
-                        src="https://cdn-icons-png.flaticon.com/512/5627/5627100.png" width="25px"
-                        alt="">
-                </div>${array[i].strCategory ? array[i].strCategory : "No data"}
-            </div>
-
-                <p class="card_description">${array[i].strInstructions ? array[i].strInstructions : ""}
-                </p>
+                </div>
+            </img>
+            <div class="card_body">
+                <div class="card_name">
+                    ${array[i].strMeal ? array[i].strMeal : ""}
+                </div>
+                <div class="card_properties">
+                    <div class="properties_circle"><img src="https://cdn-icons-png.flaticon.com/512/826/826165.png" width="25px" alt=""></div>${array[i].time ? array[i].time : "No data"}
+                    <div class="properties_circle"><img src="https://cdn-icons-png.flaticon.com/512/7780/7780470.png" width="25px" alt=""></div>${array[i].hardness ? array[i].hardness : "No data"}
+                    <div class="properties_circle"><img src="https://cdn-icons-png.flaticon.com/512/5627/5627100.png" width="25px" alt=""></div>${array[i].strCategory ? array[i].strCategory : "No data"}
+                </div>
+                <p class="card_description">${array[i].strInstructions ? array[i].strInstructions : ""}</p>
                 <ul class="card_list">
-                ${array[i].Ingridiensts ? array[i].Ingridiensts : ["<li>" + array[i].strIngredient1 + " - " + array[i].strMeasure1 + "</li>" + "<li>" + array[i].strIngredient2 + " - " + array[i].strMeasure2 + "</li>" + "<li>" + array[i].strIngredient3 + " - " + array[i].strMeasure3 + "</li>"]}
+                    ${array[i].Ingridiensts ? array[i].Ingridiensts : ["<li>" + array[i].strIngredient1 + " - " + array[i].strMeasure1 + "</li>" + "<li>" + array[i].strIngredient2 + " - " + array[i].strMeasure2 + "</li>" + "<li>" + array[i].strIngredient3 + " - " + array[i].strMeasure3 + "</li>"]}
                 </ul>
-
-            <div class="card_nurtition_price">
-                <div class="nutrition">${array[i].Nutrition ? array[i].Nutrition : "No data"}</div>
-                <div class="price"><b>${array[i].Price ? array[i].Price : ""}</b></div>
+                <div class="card_nurtition_price">
+                    <div class="nutrition">${array[i].Nutrition ? array[i].Nutrition : "No data"}</div>
+                    <div class="price"><b>${array[i].Price ? array[i].Price : ""}</b></div>
+                </div>
             </div>
-        </div>
-    </a>`,
+        </a>`,
             meal.append(card_list)
         );
 
-        // link
-        const link = document.querySelectorAll(".meal_link");
-        for (let i = 0; i < link.length; i++) {
-            link[i].addEventListener("click", () => {
-                localStorage.setItem("id", pecipeList[i].idMeal);
-                localStorage.setItem("strInstructions", pecipeList[i].strInstructions)
-                localStorage.setItem("strMealThumb", pecipeList[i].strMealThumb)
-                localStorage.setItem("Ingridiensts", pecipeList[i].Ingridiensts)
-            })
-        }
-    } pagination()
+        // Event listener to open the recipe in a new window
+        meal.querySelector(".meal_link").addEventListener("click", (event) => {
+            event.preventDefault();
+            const mealId = array[i].idMeal;
+            localStorage.setItem("id", mealId);
+            localStorage.setItem("strInstructions", array[i].strInstructions);
+            localStorage.setItem("strMealThumb", array[i].strMealThumb);
+            localStorage.setItem("Ingridiensts", array[i].Ingridiensts);
+            window.open("./meal.html", "_blank");
+        });
+    }
+    pagination();
 }
 
 function pagination() {
